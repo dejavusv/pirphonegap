@@ -63,15 +63,35 @@ public class PIRPlugin extends CordovaPlugin {
                 new IntentFilter("returnIOIOdata")
         ); 
 	   // callbackContext.success("status up");
-        
+        try{
         this.connectionCallbackContext = callbackContext;
 		PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
     	pluginResult.setKeepCallback(true);
     	callbackContext.sendPluginResult(pluginResult);
     	
-    	PluginResult result = new PluginResult(PluginResult.Status.OK, interval+":/"+dulation);
-        result.setKeepCallback(true);
-        connectionCallbackContext.sendPluginResult(result);
+    	Thread rq = new Thread("Thread7") {
+	@Override
+	public void run() {
+	runOnUiThread(new Runnable() {
+		public void run() {
+			try{
+            		    Thread.sleep(1000);
+            		}catch(Exception ex){
+            			
+            		}
+			PluginResult result = new PluginResult(PluginResult.Status.OK, interval+":/"+dulation);
+        		result.setKeepCallback(true);
+        		connectionCallbackContext.sendPluginResult(result);					                	
+		}
+	});
+	}
+	};
+	rq.start();       	
+        }catch(Exception e){
+        	callbackContext.success("status error :"+e.toString());
+        }
+
+    	
          /*
     	cordova.getThreadPool().execute(new Runnable() {
             public void run() {
