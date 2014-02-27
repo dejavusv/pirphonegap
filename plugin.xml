@@ -31,7 +31,9 @@
         <source-file src="src/android/PIRPlugin.java" target-dir="src/com/ecmxpert/pirphonegap" />
         <source-file src="src/android/PIRMotionService.java" target-dir="src/com/ecmxpert/pirphonegap" />
 	<source-file src="lib/android/android-support-v4.jar" target-dir="libs"/>
-
+	<source-file src="lib/android/ioiolib.jar" target-dir="libs"/>
+	<source-file src="lib/android/ioiolibaccessory.jar" target-dir="libs"/>
+	<source-file src="lib/android/ioiolibbt.jar" target-dir="libs"/>
 	</platform>    
 
 </plugin>
