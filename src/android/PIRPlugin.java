@@ -34,8 +34,8 @@ public class PIRPlugin extends CordovaPlugin {
 
 		if (action.equals("ioioStartup")) {
 			System.out.println("startup IOIO service");
-			callbackContext.success("status up");
-            	//	this.ioioStartup(callbackContext); 
+		//	callbackContext.success("status up");
+            		this.ioioStartup(callbackContext); 
             return true;
         }
 		if (action.equals("ioiogetdata")) {
@@ -71,13 +71,13 @@ public class PIRPlugin extends CordovaPlugin {
     	callbackContext.sendPluginResult(pluginResult);
     	cordova.getThreadPool().execute(new Runnable() {
             public void run() {
-            	while(interval.equalsIgnoreCase("")&& dulation.equalsIgnoreCase("")){
-            		try{
-            			Thread.sleep(1000);
-            		}catch(Exception ex){
+            //	while(interval.equalsIgnoreCase("")&& dulation.equalsIgnoreCase("")){
+            //		try{
+            //			Thread.sleep(1000);
+            //		}catch(Exception ex){
             			
-            		}
-            	}
+            //		}
+            //	}
             	PluginResult result = new PluginResult(PluginResult.Status.OK, interval+":/"+dulation);
             	result.setKeepCallback(true);
             	connectionCallbackContext.sendPluginResult(result);
