@@ -29,7 +29,7 @@
         </config-file>
 		
         <source-file src="src/android/PIRPlugin.java" target-dir="src/com/ecmxpert/pirphonegap" />
-
+	<source-file src="lib/android/android-support-v4.jar" target-dir="libs"/>
 
 	</platform>    
 
