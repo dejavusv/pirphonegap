@@ -28,7 +28,7 @@
 			<uses-permission android:name="android.permission.BLUETOOTH" />
         </config-file>
 		
-        <source-file src="src/android/PIRPlugin.java" target-dir="src/com/ecmxpert/pirphonegap/plugins" />
+        <source-file src="src/android/PIRPlugin.java" target-dir="src/com/ecmxpert/pirphonegap" />
 
 
 	</platform>    
