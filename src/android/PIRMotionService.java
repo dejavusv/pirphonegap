@@ -90,9 +90,9 @@ public class PIRMotionService extends IOIOService {
 							
 						}
 
-					//	if (!mp.isPlaying()) {
-					//		mp.start();
-					//	}
+						if (!mp.isPlaying()) {
+							mp.start();
+						}
 					}
 
 				} else {
@@ -197,7 +197,7 @@ public class PIRMotionService extends IOIOService {
 	//	}
 
 		// Create a media player for warning sound
-	//	mp = MediaPlayer.create(getApplicationContext(), R.raw.ring);
+		mp = MediaPlayer.create(getApplicationContext(), R.raw.ring);
 		// Setup a method to receive messages broadcast from the IOIO plugin
 		LocalBroadcastManager.getInstance(this).registerReceiver(mIOIOReceiver,
 				new IntentFilter("msgIOIO"));
