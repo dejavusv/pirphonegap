@@ -22,8 +22,8 @@ public class PIRPlugin extends CordovaPlugin {
 	private Context thisContext;
 	private Intent ioioService;
 	private Intent broadcastIntent = new Intent("msgIOIO");
-	private String interval="5";
-	private String dulation="6";
+	private String interval="";
+	private String dulation="";
 	public int PIRDetect =2;
 	private CallbackContext connectionCallbackContext; // for callback startup IOIO
 	private CallbackContext connectionCallbackMotion; // for callback Detect Motion sensor
@@ -52,30 +52,20 @@ public class PIRPlugin extends CordovaPlugin {
     // Initialise IOIO service (Called from Javascript)
     private void ioioStartup(CallbackContext callbackContext) {
     	// Initialise the service variables and start it it up
-    	//thisContext = this.cordova.getActivity().getApplicationContext();
-    	//ioioService = new Intent(thisContext, PIRMotionService.class);
-        //thisContext.startService(ioioService); 
-        //System.out.println("start service");
+    	try{
+    	thisContext = this.cordova.getActivity().getApplicationContext();
+    	ioioService = new Intent(thisContext, PIRMotionService.class);
+        thisContext.startService(ioioService); 
+        System.out.println("start service");
         
         // Setup a method to receive messages broadcast from the IOIO
         LocalBroadcastManager.getInstance(thisContext).registerReceiver(
                 mMessageReceiver, 
                 new IntentFilter("returnIOIOdata")
         ); 
-	   // callbackContext.success("status up");
-        try{
-        this.connectionCallbackContext = callbackContext;
-		PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
-    	pluginResult.setKeepCallback(true);
-    	callbackContext.sendPluginResult(pluginResult);
-			try{
-            		    Thread.sleep(1000);
-            		}catch(Exception ex){
-            			
-            		}
-			PluginResult result = new PluginResult(PluginResult.Status.OK, interval+":/"+dulation);
-        		result.setKeepCallback(true);
-        		connectionCallbackContext.sendPluginResult(result);					                	
+        callbackContext.success("status up");
+        
+       			                	
    	
         }catch(Exception e){
         	callbackContext.success("status error :"+e.toString());
