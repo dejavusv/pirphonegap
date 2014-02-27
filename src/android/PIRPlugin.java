@@ -34,7 +34,8 @@ public class PIRPlugin extends CordovaPlugin {
 
 		if (action.equals("ioioStartup")) {
 			System.out.println("startup IOIO service");
-            this.ioioStartup(callbackContext); 
+			callbackContext.success("status up");
+            	//	this.ioioStartup(callbackContext); 
             return true;
         }
 		if (action.equals("ioiogetdata")) {
@@ -62,7 +63,7 @@ public class PIRPlugin extends CordovaPlugin {
                 mMessageReceiver, 
                 new IntentFilter("returnIOIOdata")
         ); 
-	    callbackContext.success("status up");
+	   
         
         this.connectionCallbackContext = callbackContext;
 		PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
