@@ -34,8 +34,8 @@ public class PIRPlugin extends CordovaPlugin {
 
 		if (action.equals("ioioStartup")) {
 			System.out.println("startup IOIO service");
-		//	callbackContext.success("status up");
-            		this.ioioStartup(callbackContext); 
+			callbackContext.success("status up");
+            	//	this.ioioStartup(callbackContext); 
             return true;
         }
 		if (action.equals("ioiogetdata")) {
@@ -49,44 +49,7 @@ public class PIRPlugin extends CordovaPlugin {
         return false;
 	}
 
-	
-    // Initialise IOIO service (Called from Javascript)
-    private void ioioStartup(CallbackContext callbackContext) {
-    	// Initialise the service variables and start it it up
-    	//thisContext = this.cordova.getActivity().getApplicationContext();
-    	//ioioService = new Intent(thisContext, PIRMotionService.class);
-        //thisContext.startService(ioioService); 
-        //System.out.println("start service");
-        
-        // Setup a method to receive messages broadcast from the IOIO
-        LocalBroadcastManager.getInstance(thisContext).registerReceiver(
-                mMessageReceiver, 
-                new IntentFilter("returnIOIOdata")
-        ); 
-	   
-        
-        this.connectionCallbackContext = callbackContext;
-		PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
-    	pluginResult.setKeepCallback(true);
-    	callbackContext.sendPluginResult(pluginResult);
-    	cordova.getThreadPool().execute(new Runnable() {
-            public void run() {
-            	callbackContext.success("status up");
-            	/*
-            	while(interval.equalsIgnoreCase("")&& dulation.equalsIgnoreCase("")){
-            		try{
-            			Thread.sleep(1000);
-            		}catch(Exception ex){
-            			
-            		}
-            	}
-            	PluginResult result = new PluginResult(PluginResult.Status.OK, interval+":/"+dulation);
-            	result.setKeepCallback(true);
-            	connectionCallbackContext.sendPluginResult(result);
-            	*/
-            }
-        });
-    }
+
     
     private void ioioGetdata(CallbackContext callbackContext) {
     	String message = String.valueOf(PIRDetect);
