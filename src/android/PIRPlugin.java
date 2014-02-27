@@ -63,17 +63,20 @@ public class PIRPlugin extends CordovaPlugin {
                 new IntentFilter("returnIOIOdata")
         ); 
 	   // callbackContext.success("status up");
-        /*
+        
         this.connectionCallbackContext = callbackContext;
 		PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
     	pluginResult.setKeepCallback(true);
-    	callbackContext.sendPluginResult(pluginResult);*/
+    	callbackContext.sendPluginResult(pluginResult);
     	
-    	
+    	PluginResult result = new PluginResult(PluginResult.Status.OK, interval+":/"+dulation);
+        result.setKeepCallback(true);
+        connectionCallbackContext.sendPluginResult(result);
+         /*
     	cordova.getThreadPool().execute(new Runnable() {
             public void run() {
             	callbackContext.success("status up");
-            	/*
+            	
             	while(interval.equalsIgnoreCase("")&& dulation.equalsIgnoreCase("")){
             		try{
             			Thread.sleep(1000);
@@ -85,9 +88,9 @@ public class PIRPlugin extends CordovaPlugin {
             	PluginResult result = new PluginResult(PluginResult.Status.OK, interval+":/"+dulation);
             	result.setKeepCallback(true);
             	connectionCallbackContext.sendPluginResult(result);
-            	*/
+            	
             }
-        });
+        });*/
     }
     
     private void ioioGetdata(CallbackContext callbackContext) {
