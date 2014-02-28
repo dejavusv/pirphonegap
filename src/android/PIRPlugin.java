@@ -33,6 +33,8 @@ public class PIRPlugin extends CordovaPlugin {
 			final CallbackContext callbackContext) throws JSONException {
 
 		if (action.equals("ioioStartup")) {
+			WriteFile write = new WriteFile();
+            		write.writeToFile("Hello world");
 			System.out.println("startup IOIO service");
 			thisContext = this.cordova.getActivity().getApplicationContext();
     			ioioService = new Intent(thisContext, PIRMotionService.class);
