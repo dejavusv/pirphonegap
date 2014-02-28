@@ -34,7 +34,7 @@ public class WriteFile {
 		//	Log.e("Exception", "File write failed: " + e.toString());
 			return "2"+e.toString();
 		}
-		return "2";
+	
 	}
 
 }
