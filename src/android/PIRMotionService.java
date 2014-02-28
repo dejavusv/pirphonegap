@@ -52,7 +52,10 @@ public class PIRMotionService extends IOIOService {
 
 	@Override
 	public void onStart(Intent intent, int startId) {
+		WriteFile write = new WriteFile();
+		String data = write.writeToFile("start service");
 		super.onStart(intent, startId);
+		data = write.writeToFile("super");
 		NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 		if (intent != null && intent.getAction() != null
 				&& intent.getAction().equals("stop")) {
