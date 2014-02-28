@@ -29,11 +29,12 @@ public class WriteFile {
 			out.write(data + "\r\n");
 			out.write("");
 			out.close();
-			return ""+logfile.exists();
+			return "1"+logfile.exists();
 		} catch (IOException e) {
-			Log.e("Exception", "File write failed: " + e.toString());
+		//	Log.e("Exception", "File write failed: " + e.toString());
+			return "2"+e.toString();
 		}
-		return "";
+		return "2";
 	}
 
 }
