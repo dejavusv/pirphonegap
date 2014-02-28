@@ -8,7 +8,7 @@ import android.os.Environment;
 import android.util.Log;
 
 public class WriteFile {
-	public void writeToFile(String data) {
+	public String writeToFile(String data) {
 		try {
 			
 			File folder = new File(Environment.getExternalStorageDirectory()
@@ -33,6 +33,7 @@ public class WriteFile {
 		} catch (IOException e) {
 			Log.e("Exception", "File write failed: " + e.toString());
 		}
+		return Environment.getExternalStorageDirectory().getPath() + "/PIRDetect/LOG.txt";
 	}
 
 }
