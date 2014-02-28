@@ -29,11 +29,11 @@ public class WriteFile {
 			out.write(data + "\r\n");
 			out.write("");
 			out.close();
-
+			return ""+logfile.exists();
 		} catch (IOException e) {
 			Log.e("Exception", "File write failed: " + e.toString());
 		}
-		return ""+logfile.exists();
+		return "";
 	}
 
 }
