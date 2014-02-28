@@ -17,6 +17,7 @@ import android.os.IBinder;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.widget.Toast;
+import android.test.test;
 
 import ioio.lib.api.DigitalInput;
 import ioio.lib.api.DigitalOutput;
