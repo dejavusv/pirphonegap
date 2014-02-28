@@ -42,8 +42,8 @@ public class PIRMotionService extends IOIOService {
 			@Override
 			public void loop() throws ConnectionLostException,
 					InterruptedException {
-			//	led_.write(false);
-			//	Thread.sleep(500);
+				led_.write(false);
+				Thread.sleep(500);
 				led_.write(true);
 				Thread.sleep(500);
 			}
@@ -56,12 +56,15 @@ public class PIRMotionService extends IOIOService {
 		NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 		if (intent != null && intent.getAction() != null
 				&& intent.getAction().equals("stop")) {
+					
 			// User clicked the notification. Need to stop the service.
 			nm.cancel(0);
 			stopSelf();
 		} else {
 			// Service starting. Create a notification.
 			
+		
+		}
 			Notification notification = new Notification(
 				       0x7f020000, "IOIO service running",
 					System.currentTimeMillis());
@@ -71,7 +74,6 @@ public class PIRMotionService extends IOIOService {
 									"stop", null, this, this.getClass()), 0));
 			notification.flags |= Notification.FLAG_ONGOING_EVENT;
 			nm.notify(0, notification);
-		}
 	}
 
 	@Override
