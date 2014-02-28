@@ -42,8 +42,8 @@ public class PIRMotionService extends IOIOService {
 			@Override
 			public void loop() throws ConnectionLostException,
 					InterruptedException {
-				led_.write(false);
-				Thread.sleep(500);
+			//	led_.write(false);
+			//	Thread.sleep(500);
 				led_.write(true);
 				Thread.sleep(500);
 			}
