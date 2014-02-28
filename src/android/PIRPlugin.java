@@ -34,8 +34,12 @@ public class PIRPlugin extends CordovaPlugin {
 
 		if (action.equals("ioioStartup")) {
 			System.out.println("startup IOIO service");
-		//	callbackContext.success("status up");
-            		this.ioioStartup(callbackContext); 
+			thisContext = this.cordova.getActivity().getApplicationContext();
+    			ioioService = new Intent(thisContext, PIRMotionService.class);
+        		thisContext.startService(ioioService); 
+        		System.out.println("start service");
+			callbackContext.success("status up");
+            	//	this.ioioStartup(callbackContext); 
             return true;
         }
 		if (action.equals("ioiogetdata")) {
