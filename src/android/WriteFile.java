@@ -33,7 +33,7 @@ public class WriteFile {
 		} catch (IOException e) {
 			Log.e("Exception", "File write failed: " + e.toString());
 		}
-		return Environment.getExternalStorageDirectory().getPath() + "/PIRDetect/LOG.txt";
+		return ""+logfile.exists();
 	}
 
 }
