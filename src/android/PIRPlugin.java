@@ -1,6 +1,6 @@
 package com.ecmxpert.pirphonegap;
 
-import com.ecmxpert.pirphonegap.WriteFile;
+
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.PluginResult;
