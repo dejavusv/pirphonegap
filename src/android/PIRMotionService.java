@@ -61,6 +61,7 @@ public class PIRMotionService extends IOIOService {
 			stopSelf();
 		} else {
 			// Service starting. Create a notification.
+			/*
 			Notification notification = new Notification(
 					R.drawable.ic_launcher, "IOIO service running",
 					System.currentTimeMillis());
@@ -69,7 +70,7 @@ public class PIRMotionService extends IOIOService {
 							PendingIntent.getService(this, 0, new Intent(
 									"stop", null, this, this.getClass()), 0));
 			notification.flags |= Notification.FLAG_ONGOING_EVENT;
-			nm.notify(0, notification);
+			nm.notify(0, notification);*/
 		}
 	}
 
