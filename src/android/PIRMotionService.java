@@ -34,7 +34,7 @@ public class PIRMotionService extends IOIOService {
 	public int startupDulationTime = 0;
 	public int IsDetect = 0;
 //	sqliteHandler sqlite = new sqliteHandler(this);
-	MediaPlayer mp;
+//	MediaPlayer mp;
 	private Intent broadcastIntent = new Intent("returnIOIOdata");
 	public int timetoggle = 0;
 	@Override
@@ -89,9 +89,9 @@ public class PIRMotionService extends IOIOService {
 							
 						}
 
-						if (!mp.isPlaying()) {
-							mp.start();
-						}
+					//	if (!mp.isPlaying()) {
+					//		mp.start();
+					//	}
 					}
 
 				} else {
