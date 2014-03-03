@@ -46,7 +46,7 @@ public class PIRMotionService extends IOIOService {
 			//int lengthDetect = 0;
 			//int lengthNoNDetect = 0;
 			int state = 0;
-			private DigitalOutput led_;
+			
 			int[] output = new int[100];
 			int LoopCount = 0;
 			int TimeCount = 0;
