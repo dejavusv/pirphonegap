@@ -1,4 +1,4 @@
-package ioio.examples.hello_service;
+package com.ecmxpert.pirphonegap;
 
 import android.app.Notification;
 import android.app.NotificationManager;
