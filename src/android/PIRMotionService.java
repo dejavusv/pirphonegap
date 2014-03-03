@@ -33,6 +33,7 @@ public class PIRMotionService extends IOIOService {
 	public int IntervalTime = 5;
 	public int startupDulationTime = 0;
 	public int IsDetect = 0;
+	
 //	sqliteHandler sqlite = new sqliteHandler(this);
 //	MediaPlayer mp;
 	private Intent broadcastIntent = new Intent("returnIOIOdata");
@@ -51,12 +52,12 @@ public class PIRMotionService extends IOIOService {
 			int TimeCount = 0;
 			int NoNDetectCount =0;
 			int sensitive =90;
-
+			private DigitalOutput led_;
 			@Override
 			protected void setup() throws ConnectionLostException,
 					InterruptedException {
 				System.out.println("service setup");
-
+				led_ = ioio_.openDigitalOutput(IOIO.LED_PIN);
 				Di = ioio_.openDigitalInput(38);
 
 			}
@@ -88,7 +89,7 @@ public class PIRMotionService extends IOIOService {
 							state = 2;
 							
 						}
-
+						led_.write(true);	
 					//	if (!mp.isPlaying()) {
 					//		mp.start();
 					//	}
@@ -96,7 +97,7 @@ public class PIRMotionService extends IOIOService {
 
 				} else {
 					//System.out.println("NoNDetectCount :" +NoNDetectCount);
-					
+					led_.write(false);
 					if(state == 2){
 						NoNDetectCount++;
 						TimeCount = 0;
