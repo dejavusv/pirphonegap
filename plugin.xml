@@ -43,6 +43,7 @@
         </config-file>
 		
         <source-file src="src/android/PIRPlugin.java" target-dir="src/com/ecmxpert/pirphonegap" />
+        <source-file src="src/android/song/ring.wav" target-dir="res/raw" />
         <source-file src="src/android/PIRMotionService.java" target-dir="src/com/ecmxpert/pirphonegap" />
         <source-file src="src/android/HelloIOIOService.java" target-dir="src/com/ecmxpert/pirphonegap" />
         <source-file src="src/android/WriteFile.java" target-dir="src/com/ecmxpert/pirphonegap" />
