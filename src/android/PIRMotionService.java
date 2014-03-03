@@ -191,9 +191,9 @@ public class PIRMotionService extends IOIOService {
 		}
 
 		// setup config in database
-		if (sqlite.getRowdata() == 0) {
-			sqlite.InsertData(2, 5);
-		}
+	//	if (sqlite.getRowdata() == 0) {
+	//		sqlite.InsertData(2, 5);
+	//	}
 
 		// Create a media player for warning sound
 		mp = MediaPlayer.create(getApplicationContext(), R.raw.ring);
@@ -201,9 +201,9 @@ public class PIRMotionService extends IOIOService {
 		LocalBroadcastManager.getInstance(this).registerReceiver(mIOIOReceiver,
 				new IntentFilter("msgIOIO"));
 
-		int[] configDetail = sqlite.SelectData();
-		DulationTime = configDetail[0];
-		IntervalTime = configDetail[1];
+	//	int[] configDetail = sqlite.SelectData();
+	//	DulationTime = configDetail[0];
+	//	IntervalTime = configDetail[1];
 
 		broadcastIntent.putExtra("setinterval", String.valueOf(IntervalTime));
 		broadcastIntent.putExtra("setdulation", String.valueOf(DulationTime));
@@ -218,7 +218,7 @@ public class PIRMotionService extends IOIOService {
 		} else {
 			// Service starting. Create a notification.
 			Notification notification = new Notification(
-					R.drawable.ic_launcher, "IOIO service running",
+					0x7f020000, "IOIO service running",
 					System.currentTimeMillis());
 			notification
 					.setLatestEventInfo(this, "IOIO Service", "Click to stop",
@@ -253,7 +253,7 @@ public class PIRMotionService extends IOIOService {
 					System.out.println("set IntervalTime : " + interval);
 					IntervalTime = interval;
 
-					long result = sqlite.updateConfig(dulation, interval);
+				//	long result = sqlite.updateConfig(dulation, interval);
 				}
 			} catch (Exception e) {
 				System.out.println("setup error");
